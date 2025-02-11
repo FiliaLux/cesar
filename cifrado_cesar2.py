@@ -28,3 +28,6 @@ def par_encrypted(dist:int):
 
 encrypt2 = encription(2)
 encrypt2, decrypt2 = par_encrypted(2)
+assert encrypt2("hola") == 'JQNC'
+assert decrypt2('JQNC') == "HOLA"
+
