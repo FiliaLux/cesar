@@ -6,9 +6,9 @@ def find(letter: str):
             return index
 
 def encrypt(message:str,distance:int):
-    
+    origin = 0
+    steps = 0
     result = ""
-    
     for letter in message.upper():
         if letter in alphabet:
             origin = alphabet.find(letter)
@@ -22,5 +22,14 @@ def encrypt(message:str,distance:int):
 def decrypt(message:str,distance:int):
     return encrypt(message,-distance)
 
-assert encrypt("hola, mundo",2) == "JQNC, ÑWOFQ"
-assert decrypt("JQNC, ÑWOFQ",2) == 'HOLA, MUNDO'
+def encription(dist:int):
+    def encrypted(message:str):
+        return encrypt(message,dist)
+    return encrypted
+
+def par_encrypted(dist:int):
+    def encrypted(message:str):
+        return encrypt(message,dist)
+    def decrypted(message:str):
+        return encrypt(message,-dist)
+    return encrypted,decrypted
